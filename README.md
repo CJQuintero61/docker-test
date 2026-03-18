@@ -7,6 +7,7 @@ related commands so the python portion is simple.
 ### running the code using containers
     1. build the docker container: docker compose up --build -d
     2. run this python file using: docker exec my-python-container python3 src/main.py
+    3. run the shell script using: docker exec my-python-container /bin/bash ./src/script.sh
 
     NOTE: When making changes to any files, the containers will need to be rebuilt
     to include the new changes inside the container, otherwise the code inside the
