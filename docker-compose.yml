@@ -1,0 +1,12 @@
+# This file is a simple docker compose file 
+# for building and running a container to use with 
+# a python program.
+
+name: my-python-program
+services:
+  backend:
+    container_name: my-python-container
+    build:
+      context: .
+      dockerfile: dockerfile.backend
+    command: ['tail', '-f', '/dev/null']

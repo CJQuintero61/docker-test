@@ -1,0 +1,29 @@
+# this is a simple dockerfile to demonstrate how to create
+# a docker container for a python project and run the container
+
+# to run:
+#   docker compose up --build -d
+
+# start with a base image
+# here, we use the official Python image from Docker Hub
+FROM python:3
+
+# set the working directory in the container
+WORKDIR /app
+
+# copy the requirements file from the root directory
+# into the container
+COPY requirements.txt ./
+
+# create a virtual environment and install the dependencies
+# inside the container
+RUN python3 -m venv ./venv
+
+# activate the virtual environment
+RUN /bin/bash -c "source ./venv/bin/activate"
+
+# install the dependencies from the requirements file
+RUN pip install -r requirements.txt
+
+# copy the source code of the project into the container
+COPY . .
